@@ -12,7 +12,7 @@ s = socket.socket()
 s.bind((host,port))
 
 #listen to 2 devices
-s.listen(10)
+s.listen(2)
 
 print("listening for incoming connection on port:", port)
 
