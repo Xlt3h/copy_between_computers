@@ -11,36 +11,35 @@ except:
 recent_value = ""
 
 #host
-host = ''
+host = '192.168.100.79'
 
 #port
 port  = 7777
-try:
-    #intialize connection
-    s = socket.socket((socket.AF_INET, socket.SOCK_STREAM))
 
-    #connect to the server
-    s.connect((host,port))
+#intialize connection
+s = socket.socket()
 
-    #running
-    running = True
+#connect to the server
+s.connect((host,port))
 
-    while running:
-        #detect if any changes in the clipboard
-        tmp_value = pyperclip.paste()
-        if tmp_value != recent_value:
-            recent_value = tmp_value
-            #send the data to the server
-            s.send(str(recent_value).encode())
-        #if data is received from the server
-        data = s.recv(1024)
-        if data:
-            #send the data to the clipboard
-            win32clipboard.OpenClipboard()
-            win32clipboard.EmptyClipboard()
-            win32clipboard.SetClipboardText(data.decode())
-            win32clipboard.CloseClipboard()
-            #sleep
-            time.sleep(0.1)     
-except:
-    print("an error occured please check the server or restart the app")
+#running
+running = True
+
+while running:
+    #detect if any changes in the clipboard
+    tmp_value = pyperclip.paste()
+    if tmp_value != recent_value:
+        recent_value = tmp_value
+        #send the data to the server
+        s.send(str(recent_value).encode())
+    #if data is received from the server
+    data = s.recv(1024)
+    if data:
+        #send the data to the clipboard
+        win32clipboard.OpenClipboard()
+        win32clipboard.EmptyClipboard()
+        win32clipboard.SetClipboardText(data.decode())
+        win32clipboard.CloseClipboard()
+        #sleep
+        time.sleep(0.1)     
+
