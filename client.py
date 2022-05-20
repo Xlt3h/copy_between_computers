@@ -11,7 +11,7 @@ except:
 recent_value = ""
 
 #host
-host = '192.168.100.79'
+host = ''
 
 #port
 port  = 7777
