@@ -1,12 +1,6 @@
-try:
-    import socket, win32clipboard ,time ,sys ,os , pyperclip
-    sys.path.append(os.path.abspath("SO_site-packages"))
-except:
-    print('Please install win32clipboard and pyperclip')
-    #wait for 5 seconds
-    time.sleep(5)
-    #exit if an error occur
-    exit()
+import socket, win32clipboard ,sys ,os , pyperclip
+sys.path.append(os.path.abspath("SO_site-packages"))
+
 #text that is copied from the clipboard
 recent_value = ""
 
@@ -36,10 +30,7 @@ while running:
     data = s.recv(1024)
     if data:
         #send the data to the clipboard
-        win32clipboard.OpenClipboard()
-        win32clipboard.EmptyClipboard()
-        win32clipboard.SetClipboardText(data.decode())
-        win32clipboard.CloseClipboard()
-        #sleep
-        time.sleep(0.1)     
+        data = data.decode()
+        pyperclip.copy(data)
+       
 
