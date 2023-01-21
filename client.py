@@ -32,5 +32,6 @@ while running:
         #send the data to the clipboard
         data = data.decode()
         pyperclip.copy(data)
+        
        
 
