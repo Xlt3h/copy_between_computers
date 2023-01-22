@@ -1,16 +1,19 @@
 #include "ClipboardXX\include\clipboardxx.hpp"
 #include <iostream>
 
-std::string get_text(std::string text)
-{
-    return text;
-}
 int main(int argc, char *argv[])
 {
-   
-    std::cout << argv[1] << std::endl;
+    std::string arguments = "";
+    for (int i = 1; i < argc; i++)
+    {
+        arguments += argv[i];
+        arguments += " ";
+    }
+    
+    
     clipboardxx::clipboard clipboard;
-    std::string text = get_text(argv[1]);
+    std::string text = arguments;
+    
     clipboard.copy(text);
 
     return 0;

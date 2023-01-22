@@ -31,7 +31,7 @@ while running:
     if data:
         #send the data to the clipboard
         data = data.decode()
-        pyperclip.copy(data)
+        os.system(" powershell ./copy_text "+ data)
         
        
 
