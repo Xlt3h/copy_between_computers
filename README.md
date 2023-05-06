@@ -3,4 +3,5 @@
 
 <ul>
 <li>text</li>
+<li>image</li>
 </ul>
