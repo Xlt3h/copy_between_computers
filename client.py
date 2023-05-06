@@ -59,7 +59,7 @@ while running:
                 # Try to decode data as text
                 text = data.decode('utf-8')
                 pyperclip.copy(text)
-                print(f"Copied text to clipboard: {text}")
+                os.system("poweshell ./copy_text " + text)
          except UnicodeDecodeError:
                 # If decoding as text fails, assume it's an image
                 image = Image.open(io.BytesIO(data))
