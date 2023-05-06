@@ -1,2 +1,5 @@
 pywin32
 pyperclipv
+tqm
+pillow
+pyperclip
